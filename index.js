@@ -124,7 +124,7 @@ function isGlobalAssignmentExpression(node) {
     && node.operator === '='
     && node.left.type === 'MemberExpression'
     && node.left.object.type === 'Identifier'
-    && node.left.object.name === 'global';
+    && node.left.object.name === 'this';
 }
 
 function isNamedExportsAssignmentExpression(node) {
@@ -179,7 +179,7 @@ function createGlobalAssignmentASTNode(functionName) {
         computed: false,
         object: {
           type: "Identifier",
-          name: "global"
+          name: "this"
         },
         property: {
           type: "Identifier",
